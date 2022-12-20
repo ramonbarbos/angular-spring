@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+
+
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,9 +9,29 @@ import { AppComponent } from './app.component';
 import {FormsModule}  from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
+import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { LoginComponent } from './login/login.component';
+
+export const appRouts: Routes = [
+
+  //Rotas
+  {path : 'home', component : HomeComponent}, //home
+  {path : 'login', component : LoginComponent} //login
+
+];
+
+export const routes : ModuleWithProviders<any>  = RouterModule.forRoot(appRouts);
+
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
