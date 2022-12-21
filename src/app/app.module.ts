@@ -18,7 +18,8 @@ export const appRouts: Routes = [
 
   //Rotas
   {path : 'home', component : HomeComponent}, //home
-  {path : 'login', component : LoginComponent} //login
+  {path : 'login', component : LoginComponent}, //login
+  {path: '', component : LoginComponent},
 
 ];
 
@@ -37,7 +38,8 @@ export const routes : ModuleWithProviders<any>  = RouterModule.forRoot(appRouts)
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]
