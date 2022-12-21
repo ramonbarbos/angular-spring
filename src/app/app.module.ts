@@ -7,12 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {FormsModule}  from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor } from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import { HttpInterceptorModule } from './service/header-interceptor.service';
 
 export const appRouts: Routes = [
 
@@ -39,7 +40,8 @@ export const routes : ModuleWithProviders<any>  = RouterModule.forRoot(appRouts)
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    routes
+    routes,
+    HttpInterceptorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
