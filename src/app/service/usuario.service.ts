@@ -13,4 +13,13 @@ export class UsuarioService {
   getStudentList(): Observable<any>{
     return this.http.get<any>(AppConstants.baseUrl);
   }
+
+  deletarUsuario(id: Number) : Observable<any>{
+    return this.http.delete<any>(AppConstants.baseUrl + id, {responseType : 'text' as 'json'});
+  }
+
+  consultarUser(nome: String) : Observable<any>{
+    return this.http.get<any>(AppConstants.baseUrl + "usuarioPorNome/" + nome);
+  }
+
 }

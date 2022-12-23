@@ -10,20 +10,32 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class UsuarioComponent implements OnInit{
 
+  usuarios!: any;
+  nome!: String
+ // public students(): Observable<User>;
 
-  teste = ['teste', 'louco']
-  students!: Observable<User[]>;
 
-  constructor(private usuarioService: UsuarioService){
+  ngOnInit(): void{
+   this.usuarios = this.usuarioService.getStudentList();
    }
 
-  ngOnInit(): void {
-    this.usuarioService.getStudentList().subscribe(data =>{
-      this.students = data;
+
+
+  deleteUsuario(id: Number){
+
+    this.usuarioService.deletarUsuario(id).subscribe(data =>{
+      console.log("Apagado: " + data);
+
+      this.usuarios = this.usuarioService.getStudentList(); //Recarregar lista de usuarios
+
     });
+  }
 
+  consultarUser(){
+    this.usuarios = this.usuarioService.consultarUser(this.nome);
+  }
 
-
+  constructor(private usuarioService: UsuarioService){
   }
 
 }

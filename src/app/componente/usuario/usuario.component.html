@@ -1,18 +1,32 @@
+
+
+  <form class="form-inline m-3">
+    <input type="text" class="form-control mr-sm-2" id="nome"  name="nome" [(ngModel)]="nome" placeholder="Procurar" >
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="consultarUser()" type="button">Buscar</button>
+  </form>
+
+
 <table class="table">
   <thead>
     <tr>
       <th >ID</th>
       <th >Login</th>
-      <th >Ramon</th>
+      <th >Nome</th>
+      <th >CEP</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let u of teste " >
-      <td>{{u}}</td>
-
+    <tr *ngFor="let u of usuarios | async " >
+      <td>{{u.id}}</td>
+      <td>{{u.login}}</td>
+      <td>{{u.nome}}</td>
+      <td>{{u.cep}}</td>
+      <button (click)="deleteUsuario(u.id)" class="btn btn-danger">Deletar</button>
 
     </tr>
 
   </tbody>
 </table>
+
+

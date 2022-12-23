@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {FormsModule}  from '@angular/forms';
-import { HttpClientModule, HttpInterceptor } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpInterceptor } from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -49,7 +49,7 @@ export const routes : ModuleWithProviders<any>  = RouterModule.forRoot(appRouts)
     routes,
     HttpInterceptorModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
