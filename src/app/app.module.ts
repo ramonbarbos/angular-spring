@@ -14,7 +14,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { HttpInterceptorModule } from './service/header-interceptor.service';
-import { UsuarioComponent } from './componente/usuario/usuario.component';
+import { UsuarioComponent } from './componente/user/usuario/usuario.component';
+import { UsuarioAddComponent } from './componente/user/usuario-add/usuario-add.component';
+
 
 
 
@@ -24,7 +26,9 @@ export const appRouts: Routes = [
   {path : 'home', component : HomeComponent}, //home
   {path : 'login', component : LoginComponent}, //login
   {path: '', component : LoginComponent},
-  {path: 'userList', component : UsuarioComponent}
+  {path: 'userList', component : UsuarioComponent},
+  {path: 'usuarioAdd', component : UsuarioAddComponent},
+  {path: 'usuarioAdd/:id', component : UsuarioAddComponent},
 
 ];
 
@@ -39,6 +43,7 @@ export const routes : ModuleWithProviders<any>  = RouterModule.forRoot(appRouts)
     HomeComponent,
     LoginComponent,
     UsuarioComponent,
+    UsuarioAddComponent,
 
   ],
   imports: [

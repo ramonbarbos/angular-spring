@@ -4,6 +4,6 @@ export class User {
  login!: String;
  nome!: String;
  cep!: String;
-
+senha!: String;
 
 }

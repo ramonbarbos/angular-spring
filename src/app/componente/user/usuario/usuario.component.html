@@ -3,6 +3,9 @@
   <form class="form-inline m-3">
     <input type="text" class="form-control mr-sm-2" id="nome"  name="nome" [(ngModel)]="nome" placeholder="Procurar" >
     <button class="btn btn-outline-success my-2 my-sm-0" (click)="consultarUser()" type="button">Buscar</button>
+
+    <button class="btn btn-outline-warning ml-1 " [routerLink]="['/usuarioAdd']" type="button">Novo</button>
+
   </form>
 
 
@@ -13,6 +16,8 @@
       <th >Login</th>
       <th >Nome</th>
       <th >CEP</th>
+      <th >Deletar</th>
+      <th >Editar</th>
 
     </tr>
   </thead>
@@ -22,7 +27,8 @@
       <td>{{u.login}}</td>
       <td>{{u.nome}}</td>
       <td>{{u.cep}}</td>
-      <button (click)="deleteUsuario(u.id)" class="btn btn-danger">Deletar</button>
+      <td><button (click)="deleteUsuario(u.id)" class="btn btn-danger">Deletar</button></td>
+      <td><button [routerLink]="['/usuarioAdd',u.id]" class="btn btn-warning">Editar</button></td>
 
     </tr>
 
